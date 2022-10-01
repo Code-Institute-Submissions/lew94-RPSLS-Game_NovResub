@@ -19,32 +19,54 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-4" id="outcome"></div>
+            <div class="col-4" id="round-outcome"></div>
         </div>
+        <form>
+            <div class="row difficulty">
+                <div class="col-4"><button>Easy</button></div>
+                <div class="col-4"><button>Medium</button></div>
+                <div class="col-4"><button>Hard</button></div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label class="game-items">
+                        <input type="radio" name="game-options" value="rock">
+                        <img id="option1" src="/assets/images/rock.png" alt="rock">
+                    </label>
+                    <label class="game-items">
+                        <input type="radio" name="game-options" value="paper">
+                        <img id="option2" src="/assets/images/paper.png" alt="paper">
+                    </label>
+                    <label class="game-items">
+                        <input type="radio" name="game-options" value="scissors">
+                        <img id="option3" src="/assets/images/scissor.png" alt="scissors">
+                    </label>
+                    <label class="game-items">
+                        <input type="radio" name="game-options" value="lizard">
+                        <img id="option4" src="/assets/images/lizard.png" alt="lizard">
+                    </label>
+                    <label class="game-items">
+                        <input type="radio" name="game-options" value="spock">
+                        <img id="option5" src="/assets/images/spock.png" alt="spock">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">Round: </div>
+            </div>
+            <div class="row">
+                <div class="col-4"><button type="submit"><a href="outcome.html">SHOOT</a></button></div>
+            </div>
+        </form>
+
         <div class="row">
-            <div class="col-4"><button>Easy</button></div>
-            <div class="col-4"><button>Medium</button></div>
-            <div class="col-4"><button>Hard</button></div>
+            <div class="col-4" id="computer-response">
+                <p></p>
+            </div>
         </div>
-        <div class="row">
-            <div class="col">Rock</div>
-            <div class="col">Paper</div>
-            <div class="col">Scissors</div>
-            <div class="col">Lizard</div>
-            <div class="col">Spock</div>
-        </div>
-        <div class="row">
-            <div class="col-4">Round: </div>
-        </div>
-        <div class="row">
-            <div class="col-4"><button><a href="outcome.html">SHOOT</a></button></div>
-        </div>
-        <div class="row">
-            <div class="col-4" id="computer-response"></div>
-        </div>
-        <div class="row">
-            <div class="col-6">Your Score: </div>
-            <div class="col-6">Computer Score: </div>
+        <div class="row" id="current-score">
+            <div class="col-6" id="your-current-score">Your Score: </div>
+            <div class="col-6" id="computer-current-score">Computer Score: </div>
         </div>
     </div>
 

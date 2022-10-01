@@ -8,3 +8,66 @@ body {
     font-size: 27px;
     background-color: #1A1A1D;
 }
+
+/*Game Option Icons*/
+
+.game-items {
+    width: 280px;
+    height: 226px;
+    border: none;
+}
+
+#option1 {
+    width: 280px;
+    height: 226px;
+    border: none;
+}
+
+#option2 {
+    width: 280px;
+    height: 226px;
+    border: none;
+}
+
+#option3 {
+    width: 280px;
+    height: 226px;
+    border: none;
+}
+
+#option4 {
+    width: 280px;
+    height: 226px;
+    border: none;
+}
+
+#option5 {
+    width: 280px;
+    height: 226px;
+    border: none;
+}
+
+[type=radio]:checked+img {
+    outline: 4px solid #0C90F0;
+    border-radius: 6px;
+    filter: none;
+}
+
+
+
+img:hover {
+    filter: drop-shadow(9px 0px 11px #0C90F0) drop-shadow(-4px 1px 0 #0C90F0);
+}
+
+
+[type=radio]+#option1 {
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
