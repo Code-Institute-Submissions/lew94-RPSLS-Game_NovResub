@@ -35,7 +35,25 @@ if (document.getElementsByName('game-options').checked) {
     alert("Selected Radio Button is: " + selectedValue);
 }
 
+function getItem() {
+    var element = document.getElementById("game-set");
+    var index = element.tabIndex;
+    console.log(element)
+}
+document.getElementById("game-set").addEventListener("click", function (e) {
+    var list = ["option1", "option2", "option3", "option4", "option5"]
+    var selectedId = e.target.id;
+    for (let item of list) {
+        console.log(selectedId)
+        if (item !== selectedId) {
+            document.getElementById(item).className = "";
 
+        } else {
+            document.getElementById(item).className = "selected";
+
+        }
+    }
+})
 
 function easyMode() {
     let easyChance = math.floor(Math.random() * 10) + 1;

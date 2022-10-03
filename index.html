@@ -27,28 +27,48 @@
                 <div class="col-4"><button type="button" name="medium" class="game-buttons">Medium</button></div>
                 <div class="col-4"><button type="button" name="hard" class="game-buttons">Hard</button></div>
             </div>
-            <div class="row" id="game-set">
+            <div class="row">
                 <div class="col-12">
-                    <label class="game-items">
+                    <ul id="game-set">
+                        <li tabindex="0" (click)=" getItem()">
+                            <img id="option1" src="/assets/images/rock.png" alt="rock">
+                        </li>
+                        <li tabindex="1" (click)=" getItem()">
+                            <img id="option2" src="/assets/images/paper.png" alt="paper">
+                        </li>
+                        <li tabindex="2" (click)=" getItem()">
+                            <img id="option3" src="/assets/images/scissor.png" alt="scissors">
+                        </li>
+                        <li tabindex="3" (click)=" getItem()">
+                            <img id="option4" src="/assets/images/lizard.png" alt="lizard">
+                        </li>
+                        <li tabindex="4" (click)=" getItem()">
+                            <img id="option5" src="/assets/images/spock.png" alt="spock">
+                        </li>
+
+                    </ul>
+
+
+                    <!-- <span class="game-items">
                         <input type="radio" name="game-options" value="rock">
                         <img id="option1" src="/assets/images/rock.png" alt="rock">
-                    </label>
-                    <label class="game-items">
+                    </span>
+                    <span class="game-items">
                         <input type="radio" name="game-options" value="paper">
                         <img id="option2" src="/assets/images/paper.png" alt="paper">
-                    </label>
-                    <label class="game-items">
+                    </span>
+                    <span class="game-items">
                         <input type="radio" name="game-options" value="scissors">
                         <img id="option3" src="/assets/images/scissor.png" alt="scissors">
-                    </label>
-                    <label class="game-items">
+                    </span>
+                    <span class="game-items">
                         <input type="radio" name="game-options" value="lizard">
                         <img id="option4" src="/assets/images/lizard.png" alt="lizard">
-                    </label>
-                    <label class="game-items">
+                    </span>
+                    <span class="game-items">
                         <input type="radio" name="game-options" value="spock">
                         <img id="option5" src="/assets/images/spock.png" alt="spock">
-                    </label>
+                    </span> -->
                 </div>
             </div>
             <div class="row">

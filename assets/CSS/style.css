@@ -95,7 +95,9 @@ h1,
 }
 
 /* button pseudo elements reactions*/
-[type=radio]:checked+img {
+
+
+.selected {
     outline: 4px solid #0C90F0;
     border-radius: 6px;
     filter: none;
@@ -103,19 +105,24 @@ h1,
 
 img:hover {
     filter: drop-shadow(9px 0px 11px #0C90F0) drop-shadow(-4px 1px 0 #0C90F0);
-}
-
-
-[type=radio]+img {
     cursor: pointer;
     margin-right: 0.5rem;
 }
 
-[type=radio] {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
+ul {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: block;
+    flex: 0 1 auto;
+    /* Default */
+    list-style-type: none;
 }
 
 #your-current-score {
