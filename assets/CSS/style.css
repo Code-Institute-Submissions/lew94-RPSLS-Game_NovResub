@@ -9,7 +9,52 @@ body {
     background-color: #1A1A1D;
 }
 
-/*Game Option Icons*/
+h1,
+#round-outcome,
+#difficulty,
+#game-set,
+[type=submit] {
+    margin-bottom: 29px;
+}
+
+/* Page button style */
+
+.game-buttons {
+    height: 79px;
+    border-radius: 12px;
+    background-color: #C3073F;
+    font-size: 43px;
+    color: white;
+}
+
+.game-buttons:hover {
+    filter: drop-shadow(1px 2px 13px white);
+}
+
+.game-buttons:checked {
+    background-color: white;
+    font-size: 43px;
+    color: #C3073F;
+}
+
+.game-buttons:focus {
+    background-color: white;
+    font-size: 43px;
+    color: #C3073F;
+}
+
+#shoot-game {
+    color: black;
+    background-color: white;
+    height: 79px;
+    border-radius: 12px;
+    font-size: 43px;
+    text-decoration: none;
+}
+
+
+/*Game Option Icons */
+
 
 .game-items {
     width: 280px;
@@ -17,6 +62,8 @@ body {
     border: none;
 }
 
+
+/*Image sizes*/
 #option1 {
     width: 280px;
     height: 226px;
@@ -36,31 +83,30 @@ body {
 }
 
 #option4 {
-    width: 280px;
-    height: 226px;
+    width: 269px;
+    height: 185px;
     border: none;
 }
 
 #option5 {
-    width: 280px;
-    height: 226px;
+    width: 237px;
+    height: 252px;
     border: none;
 }
 
+/* button pseudo elements reactions*/
 [type=radio]:checked+img {
     outline: 4px solid #0C90F0;
     border-radius: 6px;
     filter: none;
 }
 
-
-
 img:hover {
     filter: drop-shadow(9px 0px 11px #0C90F0) drop-shadow(-4px 1px 0 #0C90F0);
 }
 
 
-[type=radio]+#option1 {
+[type=radio]+img {
     cursor: pointer;
     margin-right: 0.5rem;
 }
@@ -70,4 +116,8 @@ img:hover {
     opacity: 0;
     width: 0;
     height: 0;
+}
+
+#your-current-score {
+    color: #0C90F0;
 }
