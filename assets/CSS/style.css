@@ -64,31 +64,31 @@ h1,
 
 
 /*Image sizes*/
-#option1 {
+#rock-option {
     width: 280px;
     height: 226px;
     border: none;
 }
 
-#option2 {
+#paper-option {
     width: 280px;
     height: 226px;
     border: none;
 }
 
-#option3 {
+#scissors-option {
     width: 280px;
     height: 226px;
     border: none;
 }
 
-#option4 {
+#lizard-option {
     width: 269px;
     height: 185px;
     border: none;
 }
 
-#option5 {
+#spock-option {
     width: 237px;
     height: 252px;
     border: none;

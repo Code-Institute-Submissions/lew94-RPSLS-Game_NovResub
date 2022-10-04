@@ -41,7 +41,7 @@ function getItem() {
     console.log(element)
 }
 document.getElementById("game-set").addEventListener("click", function (e) {
-    var list = ["option1", "option2", "option3", "option4", "option5"]
+    var list = ["rock-option", "paper-option", "scissors-option", "lizard-option", "spock-option"]
     var selectedId = e.target.id;
     for (let item of list) {
         console.log(selectedId)
@@ -80,4 +80,31 @@ function hardMode() {
     } else {
         loseRound();
     }
+}
+
+function againstRock() {
+    pcLose = ["scissors", "lizard"];
+    pcWin = ["scissors", "lizard"];
+    let random = Math.floor(Math.random() * pcLose.length);
+    console.log(random, pcLose[random]);
+}
+
+function againstPaper() {
+    pcLose = ["rock", "spock"];
+    pcWin = ["rock", "spock"];
+}
+
+function againstScissors() {
+    pcLose = ["paper", "lizard"];
+    pcWin = ["paper", "lizard"];
+}
+
+function againstLizard() {
+    pcLose = ["paper", "spock"];
+    pcWin = ["paper", "spock"];
+}
+
+function againstSpock() {
+    pcLose = ["scissors", "rock"];
+    pcWin = ["scissors", "rock"];
 }
