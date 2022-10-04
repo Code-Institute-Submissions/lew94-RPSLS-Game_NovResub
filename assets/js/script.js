@@ -25,6 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
 function gameStart(gameMode) {
     console.log(gameMode)
 
+    if (gameMode === "easy") {
+        easyMode();
+    } else {
+        alert("Hello")
+    }
 
 }
 
@@ -40,6 +45,7 @@ function getItem() {
     var index = element.tabIndex;
     console.log(element)
 }
+
 document.getElementById("game-set").addEventListener("click", function (e) {
     var list = ["rock-option", "paper-option", "scissors-option", "lizard-option", "spock-option"]
     var selectedId = e.target.id;
@@ -56,11 +62,12 @@ document.getElementById("game-set").addEventListener("click", function (e) {
 })
 
 function easyMode() {
-    let easyChance = math.floor(Math.random() * 10) + 1;
+    console.log("it Worked")
+    let easyChance = Math.floor(Math.random() * 10) + 1;
     if (easyChance === 10) {
-        loseRound();
+        console.log("You Lose")
     } else {
-        winRound();
+        console.log("You Win!!")
     }
 }
 
@@ -74,7 +81,7 @@ function mediumMode() {
 }
 
 function hardMode() {
-    let easyChance = math.floor(Math.random() * 10) + 1;
+    let easyChance = Math.floor(Math.random() * 10) + 1;
     if (easyChance >= 9) {
         winRound();
     } else {
@@ -82,12 +89,14 @@ function hardMode() {
     }
 }
 
-function againstRock() {
-    pcLose = ["scissors", "lizard"];
-    pcWin = ["scissors", "lizard"];
-    let random = Math.floor(Math.random() * pcLose.length);
-    console.log(random, pcLose[random]);
-}
+// function againstRock() {
+//     pcLose = ["scissors", "lizard"];
+//     pcWin = ["scissors", "lizard"];
+
+//     if
+//     // let random = Math.floor(Math.random() * pcLose.length);
+//     // console.log(random, pcLose[random]);
+// }
 
 function againstPaper() {
     pcLose = ["rock", "spock"];
