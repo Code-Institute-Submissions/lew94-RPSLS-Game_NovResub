@@ -1,8 +1,8 @@
-let gameMode = "";
-let trueGame = false;
+let gameMode = false;
+let itemPicked = false;
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log(gameMode + "hello");
+    console.log("hello");
     var diffModes = ["easy", "medium", "hard"]
     // Gets user game difficulty selection
     document.getElementById("difficulty").addEventListener("click", function (e) {
@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 modeLoop.className = "";
             } else {
                 modeLoop.className = "difficulty-selected"
+                gameMode = true;
             }
 
         }
@@ -31,27 +32,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
             } else {
                 element.className = "selected";
+                itemPicked = true;
             }
         }
     })
 
 })
 
-function setGameOptions() {
-
-
-}
 
 let checkIfReady = document.getElementById("shoot-game").addEventListener("click", valGame);
 
 function valGame() {
-    if (trueGame === true && selectedId != "") {
+    if (gameMode === true && itemPicked === true) {
         console.log("Game Start")
-        gameStart()
+
     } else {
         console.log("Choose an item & or mode")
         console.log(selectedId)
-        console.log(trueGame)
+        console.log(difficultyOp)
     }
 }
 
