@@ -1,91 +1,120 @@
+let gameMode = "";
+let trueGame = false;
+
 document.addEventListener("DOMContentLoaded", function () {
-    let boot = document.getElementsByClassName("game-buttons");
+    console.log(gameMode + "hello");
+    var diffModes = ["easy", "medium", "hard"]
+    // Gets user game difficulty selection
+    document.getElementById("difficulty").addEventListener("click", function (e) {
+        difficultyOp = e.target.id;
+        for (let gModes of diffModes) {
+            console.log(difficultyOp)
+            var modeLoop = document.getElementById(gModes);
+            if (gModes !== difficultyOp) {
+                modeLoop.className = "";
+            } else {
+                modeLoop.className = "difficulty-selected"
+            }
 
+        }
+    })
 
-    for (let mode of boot) {
-
-        mode.addEventListener("click", function () {
-            if (this.getAttribute("name") === "easy") {
-                let gameMode = this.getAttribute("name");
-                gameStart(gameMode);
-            } else if (this.getAttribute("name") === "medium") {
-                let gameMode = this.getAttribute("name");
-                gameStart(gameMode);
+    var listOptions = ["rock-option", "paper-option", "scissors-option", "lizard-option", "spock-option"]
+    // Gets user game item selected
+    document.getElementById("game-set").addEventListener("click", function (e) {
+        selectedId = e.target.id;
+        for (let item of listOptions) {
+            console.log(selectedId)
+            var element = document.getElementById(item);
+            if (item !== selectedId) {
+                element.className = "";
 
             } else {
-                let gameMode = this.getAttribute("name");
-                gameStart(gameMode)
+                element.className = "selected";
             }
-        })
-    }
-
+        }
+    })
 
 })
+
+function setGameOptions() {
+
+
+}
+
+let checkIfReady = document.getElementById("shoot-game").addEventListener("click", valGame);
+
+function valGame() {
+    if (trueGame === true && selectedId != "") {
+        console.log("Game Start")
+        gameStart()
+    } else {
+        console.log("Choose an item & or mode")
+        console.log(selectedId)
+        console.log(trueGame)
+    }
+}
+
 
 function gameStart(gameMode) {
     console.log(gameMode)
 
-    if (gameMode === "easy") {
-        easyMode();
-    } else {
-        alert("Hello")
-    }
+
+    // if (gameMode === "easy") {
+    //     easyMode();
+    // } else if (gameMode === "medium") {
+    //     mediumMode();
+    // } else {
+    //     hardMode();
+    // }
 
 }
 
 
-var getSelectedValue = document.querySelector('input[name="season"]+img:checked');
-if (document.getElementsByName('game-options').checked) {
-    var selectedValue = document.getElementsByName('game-options').value;
-    alert("Selected Radio Button is: " + selectedValue);
-}
+
 
 function getItem() {
     var element = document.getElementById("game-set");
     var index = element.tabIndex;
-    console.log(element)
+    console.log(element + "getItem")
 }
 
-document.getElementById("game-set").addEventListener("click", function (e) {
-    var list = ["rock-option", "paper-option", "scissors-option", "lizard-option", "spock-option"]
-    var selectedId = e.target.id;
-    for (let item of list) {
-        console.log(selectedId)
-        if (item !== selectedId) {
-            document.getElementById(item).className = "";
 
-        } else {
-            document.getElementById(item).className = "selected";
 
-        }
-    }
-})
+
 
 function easyMode() {
     console.log("it Worked")
-    let easyChance = Math.floor(Math.random() * 10) + 1;
+    let easyChance = Math.floor(Math.random() * 12) + 1;
     if (easyChance === 10) {
+        console.log("You Draw")
+    } else if (easyChance > 10) {
+        console.log("You Lose")
+    } else {
+        console.log("You Win!!!")
+    }
+}
+
+function mediumMode() {
+    let mediumChance = Math.floor(Math.random() * 10) + 1;
+    if (mediumChance === 10) {
+        console.log("You Draw")
+    } else if (mediumChance % 2 === 0) {
         console.log("You Lose")
     } else {
         console.log("You Win!!")
     }
 }
 
-function mediumMode() {
-    let easyChance = math.floor(Math.random() * 10) + 1;
-    if (easyChance % 2 === 0) {
-        loseRound();
-    } else {
-        winRound();
-    }
-}
-
 function hardMode() {
-    let easyChance = Math.floor(Math.random() * 10) + 1;
-    if (easyChance >= 9) {
-        winRound();
+    let hardChance = Math.floor(Math.random() * 10) + 1;
+    if (hardChance == 10) {
+        console.log("You Draw");
+    } else if (hardChance >= 7) {
+        console.log("You Win!!!");
+
     } else {
-        loseRound();
+        console.log("You Lose");
     }
 }
 
@@ -101,6 +130,7 @@ function hardMode() {
 function againstPaper() {
     pcLose = ["rock", "spock"];
     pcWin = ["rock", "spock"];
+    draw = "paper"
 }
 
 function againstScissors() {
