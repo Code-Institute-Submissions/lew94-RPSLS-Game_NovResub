@@ -81,35 +81,38 @@ function gameStart(selectedId, difficultyOp) {
 
 }
 
+let userCurrentScore = 0;
+let pcCurrentScore = 0;
+
+function loadPage() {
+    document.getElementById("shoot-game").disabled = true;
+    console.log("Game Over");
+    console.log(userCurrentScore + " " + pcCurrentScore);
+    // setTimeout(() => {
+    //     window.location.assign("outcome.html");
+    // }, 3000);
+}
 
 function easyMode() {
     let easyChance = Math.floor(Math.random() * 12) + 1;
-    let currentScore = 0;
+
     if (easyChance === 10) {
         console.log("You Draw")
     } else if (easyChance > 10) {
         console.log("You Lose")
-        let pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
+        pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
         document.getElementById("pc-count").innerText = ++pcCurrentScore;
 
     } else {
         console.log("You Win!!!")
-        let currentScore = parseInt(document.getElementById("your-count").innerText);
-        document.getElementById("your-count").innerText = ++currentScore;
+        userCurrentScore = parseInt(document.getElementById("your-count").innerText);
+        document.getElementById("your-count").innerText = ++userCurrentScore;
     }
     let roundCount = parseInt(document.getElementById("round-count").innerText);
     document.getElementById("round-count").innerText = ++roundCount;
 
     if (roundCount === 5) {
-        console.log("Game Over")
-        // setTimeout(() => {
-        //     window.location.assign("outcome.html");
-        // }, 3000);
-        document.getElementById("your-final").innerText = currentScore;
-        console.log(currentScore)
-        // parseInt(document.getElementById("your-final").innerText = currentScore);
-        // parseInt(document.getElementById("pc-final").innerText = currentScore);
-        // document.getElementById("pc-final") = pcCurrentScore;
+        loadPage();
     }
 
 }
@@ -120,19 +123,18 @@ function mediumMode() {
         console.log("You Draw")
     } else if (mediumChance % 2 === 0) {
         console.log("You Lose")
-        let pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
+        pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
         document.getElementById("pc-count").innerText = ++pcCurrentScore;
     } else {
         console.log("You Win!!")
-        let currentScore = parseInt(document.getElementById("your-count").innerText);
-        document.getElementById("your-count").innerText = ++currentScore;
+        userCurrentScore = parseInt(document.getElementById("your-count").innerText);
+        document.getElementById("your-count").innerText = ++userCurrentScore;
     }
     let roundCount = parseInt(document.getElementById("round-count").innerText);
     document.getElementById("round-count").innerText = ++roundCount;
 
     if (roundCount === 5) {
-        console.log("Game Over")
-        // window.location.assign("outcome.html");
+        loadPage();
     }
 }
 
@@ -142,22 +144,22 @@ function hardMode() {
         console.log("You Draw");
     } else if (hardChance >= 7) {
         console.log("You Win!!!");
-        let currentScore = parseInt(document.getElementById("your-count").innerText);
-        document.getElementById("your-count").innerText = ++currentScore;
+        userCurrentScore = parseInt(document.getElementById("your-count").innerText);
+        document.getElementById("your-count").innerText = ++userCurrentScore;
 
     } else {
         console.log("You Lose");
-        let pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
+        pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
         document.getElementById("pc-count").innerText = ++pcCurrentScore;
     }
     let roundCount = parseInt(document.getElementById("round-count").innerText);
     document.getElementById("round-count").innerText = ++roundCount;
 
     if (roundCount === 5) {
-        console.log("Game Over")
-        // window.location.assign("outcome.html");
+        loadPage();
     }
 }
+
 
 // function againstRock() {
 //     pcLose = ["scissors", "lizard"];

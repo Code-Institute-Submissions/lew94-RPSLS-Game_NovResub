@@ -27,25 +27,19 @@ h1,
     color: white;
 }
 
+button {
+    height: 79px;
+    border-radius: 12px;
+    background-color: #C3073F;
+    font-size: 43px;
+    color: white;
+}
+
 .game-buttons:hover {
     filter: drop-shadow(1px 2px 13px white);
 }
 
-.game-buttons:checked {}
-
-#difficulty-selected {
-    background-color: white;
-    font-size: 43px;
-    color: #C3073F;
-}
-
-.game-buttons:focus {
-    background-color: white;
-    font-size: 43px;
-    color: #C3073F;
-}
-
-#shoot-game {
+.difficulty-selected {
     color: black;
     background-color: white;
     height: 79px;
