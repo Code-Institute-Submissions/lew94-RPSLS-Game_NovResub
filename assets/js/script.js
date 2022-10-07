@@ -88,23 +88,34 @@ function loadPage() {
     document.getElementById("shoot-game").disabled = true;
     console.log("Game Over");
     console.log(userCurrentScore + " " + pcCurrentScore);
+    document.getElementById("round-outcome").innerHTML = "GAME OVER";
     // setTimeout(() => {
     //     window.location.assign("outcome.html");
     // }, 3000);
+}
+
+function drawRound() {
+    let addEnemyColor = document.getElementsByClassName("selected");
+    for (let colors of addEnemyColor) {
+        colors.classList.add('pc-drew');
+    }
+
 }
 
 function easyMode() {
     let easyChance = Math.floor(Math.random() * 12) + 1;
 
     if (easyChance === 10) {
-        console.log("You Draw")
+        document.getElementById("round-outcome").innerHTML = "You draw";
+        let pcChoice = document.getElementsByClassName("selected");
+        pcChoice.style.border = "2px dotted red";
     } else if (easyChance > 10) {
-        console.log("You Lose")
+        document.getElementById("round-outcome").innerHTML = "You Lose";
         pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
         document.getElementById("pc-count").innerText = ++pcCurrentScore;
 
     } else {
-        console.log("You Win!!!")
+        document.getElementById("round-outcome").innerHTML = "You Win!!";
         userCurrentScore = parseInt(document.getElementById("your-count").innerText);
         document.getElementById("your-count").innerText = ++userCurrentScore;
     }
@@ -120,35 +131,36 @@ function easyMode() {
 function mediumMode() {
     let mediumChance = Math.floor(Math.random() * 10) + 1;
     if (mediumChance === 10) {
-        console.log("You Draw")
+        document.getElementById("round-outcome").innerHTML = "You draw";
+        drawRound();
     } else if (mediumChance % 2 === 0) {
-        console.log("You Lose")
+        document.getElementById("round-outcome").innerHTML = "You Lose";
         pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
         document.getElementById("pc-count").innerText = ++pcCurrentScore;
     } else {
-        console.log("You Win!!")
+        document.getElementById("round-outcome").innerHTML = "You Win!!";
         userCurrentScore = parseInt(document.getElementById("your-count").innerText);
         document.getElementById("your-count").innerText = ++userCurrentScore;
     }
     let roundCount = parseInt(document.getElementById("round-count").innerText);
     document.getElementById("round-count").innerText = ++roundCount;
 
-    if (roundCount === 5) {
-        loadPage();
-    }
+    // if (roundCount === 5) {
+    //     loadPage();
+    // }
 }
 
 function hardMode() {
     let hardChance = Math.floor(Math.random() * 10) + 1;
     if (hardChance == 10) {
-        console.log("You Draw");
+        document.getElementById("round-outcome").innerHTML = "You draw";
     } else if (hardChance >= 7) {
-        console.log("You Win!!!");
+        document.getElementById("round-outcome").innerHTML = "You Win!!";
         userCurrentScore = parseInt(document.getElementById("your-count").innerText);
         document.getElementById("your-count").innerText = ++userCurrentScore;
 
     } else {
-        console.log("You Lose");
+        document.getElementById("round-outcome").innerHTML = "You Lose";
         pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
         document.getElementById("pc-count").innerText = ++pcCurrentScore;
     }

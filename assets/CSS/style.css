@@ -18,6 +18,9 @@ h1,
 }
 
 /* Page button style */
+#round-outcome {
+    color: white;
+}
 
 .game-buttons {
     height: 79px;
@@ -99,6 +102,12 @@ button {
     filter: none;
 }
 
+.pc-drew {
+    /* outline-color: red !important; */
+    outline: 4px solid linear-gradient(to left, #ff0000 50%, #0000ff 50%) !important;
+}
+
+
 img:hover {
     filter: drop-shadow(9px 0px 11px #0C90F0) drop-shadow(-4px 1px 0 #0C90F0);
     cursor: pointer;
@@ -123,4 +132,47 @@ li {
 
 #your-current-score {
     color: #0C90F0;
+}
+
+/* Run the game button */
+#shoot-game {
+    height: 79px;
+    border-radius: 12px;
+    background-color: #f7aa2e;
+    font-size: 43px;
+    color: #950740;
+    border: solid 2px white;
+}
+
+#shoot-game:hover span {
+    display: none;
+}
+
+#shoot-game:hover {
+    background-color: #C3073F;
+    color: white;
+    color: white;
+}
+
+#shoot-game:hover::before {
+    content: "Shoot >>>";
+    width: fit-content;
+}
+
+#shoot-game:active {
+    height: 79px;
+    border-radius: 12px;
+    background-color: #fcba03;
+    font-size: 43px;
+    color: #950740;
+    border: solid 2px blue;
+}
+
+/* refresh Game button */
+
+#restart-game {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    font-size: 16px;
+    height: 34px;
 }

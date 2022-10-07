@@ -19,7 +19,9 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-4" id="round-outcome">you win</div>
+            <div class="col-4">
+                <p id="round-outcome"></p>
+            </div>
         </div>
         <form>
             <div class="row" id="difficulty">
@@ -55,7 +57,13 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-4"><button id="shoot-game" type="button">Shoot</button>
+                <div class="col-4"><button id="shoot-game" type="button"><span>Shoot</span></button>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-4">
+                    <button id="restart-game" type="button" onClick="window.location.reload();"><i
+                            class="fa-solid fa-rotate-right"></i> Refresh Game</button>
                 </div>
             </div>
         </form>
@@ -71,8 +79,9 @@
         </div>
     </div>
 
-    <script src="assets/js/script.js"></script>
 
+    <script src="https://kit.fontawesome.com/11fbf8dd58.js" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
