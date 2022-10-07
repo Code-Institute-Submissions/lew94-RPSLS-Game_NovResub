@@ -17,6 +17,10 @@ h1,
     margin-bottom: 29px;
 }
 
+.hidden-round {
+    height: 100px;
+}
+
 /* Page button style */
 #round-outcome {
     color: white;
@@ -63,31 +67,31 @@ button {
 
 
 /*Image sizes*/
-#rock-option {
+#rock {
     width: 280px;
     height: 226px;
     border: none;
 }
 
-#paper-option {
+#paper {
     width: 280px;
     height: 226px;
     border: none;
 }
 
-#scissors-option {
+#scissors {
     width: 280px;
     height: 226px;
     border: none;
 }
 
-#lizard-option {
+#lizard {
     width: 269px;
     height: 185px;
     border: none;
 }
 
-#spock-option {
+#spock {
     width: 237px;
     height: 252px;
     border: none;
@@ -102,10 +106,6 @@ button {
     filter: none;
 }
 
-.pc-drew {
-    /* outline-color: red !important; */
-    outline: 4px solid linear-gradient(to left, #ff0000 50%, #0000ff 50%) !important;
-}
 
 
 img:hover {
