@@ -17,64 +17,87 @@
 <body>
     <h1>Rock, Paper, Scissors, Lizard & Spock</h1>
     <div class="row justify-content-center">
-        <div class="col-4 hidden-round">
-            <p id="game-over-message"></p>
+        <div class="col-12 text-center hidden-round">
+            <span id="game-over-message" class="text-center"></span>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 text-center hidden-round">
             <a href="https://www.youtube.com/watch?v=_PUEoDYpUyQ" target="_blank" id="win-link"></a>
         </div>
     </div>
     <div class="container-fluid">
         <div class="row justify-content-center top-row">
-            <div class="col-4 hidden-round">
+            <div class="col-12 text-center hidden-round">
                 <p id="round-outcome"></p>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-4 hidden-round">
+            <div class="col-12 text-center hidden-round">
                 <p id="pc-result"></p>
             </div>
         </div>
         <form>
-            <div class="row" id="difficulty">
-                <div class="col-4"><button type="button" id="easy" class="game-buttons">Easy</button></div>
-                <div class="col-4"><button type="button" id="medium" class="game-buttons">Medium</button></div>
-                <div class="col-4"><button type="button" id="hard" class="game-buttons">Hard</button></div>
+            <div class="row justify-content-center" id="difficulty">
+                <div class="col"><button type="button" id="easy" class="game-buttons">Easy</button></div>
+                <div class="col"><button type="button" id="medium" class="game-buttons">Medium</button></div>
+                <div class="col"><button type="button" id="hard" class="game-buttons">Hard</button></div>
+            </div>
+            <div class="row justify-content-center" id="game-set">
+                <!-- <div class="col-12" > -->
+                <!-- <div > -->
+                <div class="col">
+
+                    <img id="rock" src="assets/images/rock.png" alt="rock">
+
+                </div>
+
+                <div class="col">
+
+                    <img id="paper" src="assets/images/paper.png" alt="paper">
+
+                </div>
+
+                <div class="col">
+
+                    <img id="scissors" src="assets/images/scissor.png" alt="scissors">
+
+                </div>
+
+                <div class="col">
+
+                    <img id="lizard" src="assets/images/lizard.png" alt="lizard">
+
+                </div>
+
+                <div class="col">
+
+                    <img id="spock" src="assets/images/spock.png" alt="spock">
+
+                </div>
+                <!-- </div> -->
+                <!-- </div> -->
+
+
             </div>
             <div class="row">
                 <div class="col-12">
-                    <ul id="game-set">
-                        <li>
-                            <img id="rock" src="assets/images/rock.png" alt="rock">
-                        </li>
-                        <li>
-                            <img id="paper" src="assets/images/paper.png" alt="paper">
-                        </li>
-                        <li>
-                            <img id="scissors" src="assets/images/scissor.png" alt="scissors">
-                        </li>
-                        <li>
-                            <img id="lizard" src="assets/images/lizard.png" alt="lizard">
-                        </li>
-                        <li>
-                            <img id="spock" src="assets/images/spock.png" alt="spock">
-                        </li>
+                    <div class="row">
+                        <p class="col-4">Round: <span id="round-count">0</span> / 5</p>
 
-                    </ul>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-4"><button id="shoot-game" type="button"><span>Shoot</span></button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-4">
+                            <button id="restart-game" type="button" onClick="window.location.reload();"><i
+                                    class="fa-solid fa-rotate-right"></i> Refresh Game</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <p class="col-4">Round: <span id="round-count">0</span> / 5</p>
 
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-4"><button id="shoot-game" type="button"><span>Shoot</span></button>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-4">
-                    <button id="restart-game" type="button" onClick="window.location.reload();"><i
-                            class="fa-solid fa-rotate-right"></i> Refresh Game</button>
-                </div>
             </div>
         </form>
         <div class="row" id="current-score">

@@ -95,7 +95,7 @@ function loadPage(userCurrentScore, pcCurrentScore) {
     document.getElementById("round-outcome").innerHTML = "GAME OVER";
     if (userCurrentScore > pcCurrentScore) {
         document.getElementById("game-over-message").innerHTML = "Well done You Won the Game!!";
-        document.getElementById("win-link").innerHTML = "Your Prize, Congratulations";
+        document.getElementById("win-link").innerHTML = "Click here For Your Prize, Congratulations";
     } else if (pcCurrentScore > userCurrentScore) {
         document.getElementById("game-over-message").innerHTML = "Unlucky, Computer Won the Game";
     } else {
