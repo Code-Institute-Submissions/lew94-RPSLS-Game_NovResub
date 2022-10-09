@@ -3,35 +3,32 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Dom loaded");
     checkTrue();
 
-})
+});
 
 function checkTrue() {
-    var diffModes = ["easy", "medium", "hard"]
-    let gameMode = false;
-    let itemPicked = false;
+    var diffModes = ["easy", "medium", "hard"];
+    var gameMode = false;
+    var itemPicked = false;
     // Gets user game difficulty selection
     document.getElementById("difficulty").addEventListener("click", function (e) {
         difficultyOp = e.target.id;
         for (let gModes of diffModes) {
-            console.log(difficultyOp)
             var modeLoop = document.getElementById(gModes);
             if (gModes !== difficultyOp) {
                 modeLoop.className = "";
             } else {
-                modeLoop.className = "difficulty-selected"
+                modeLoop.className = "difficulty-selected";
                 gameMode = true;
             }
-
         }
-    })
+    });
 
 
-    var listOptions = ["rock", "paper", "scissors", "lizard", "spock"]
+    var listOptions = ["rock", "paper", "scissors", "lizard", "spock"];
     // Gets user game item selected
     document.getElementById("game-set").addEventListener("click", function (e) {
         selectedId = e.target.id;
-        for (let item of listOptions) {
-            console.log(selectedId)
+        for (var item of listOptions) {
             var element = document.getElementById(item);
             if (item !== selectedId) {
                 element.className = "";
@@ -42,7 +39,7 @@ function checkTrue() {
 
             }
         }
-    })
+    });
 
 
     document.getElementById("shoot-game").addEventListener("click", valGame);
@@ -261,6 +258,6 @@ function pcResponse(pcOutcome, userOutcome, selectedId) {
             document.getElementById("pc-result").innerHTML = item;
         }
     } else {
-        console.log("Error happened")
+        console.log("Error happened");
     }
 }
