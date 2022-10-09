@@ -83,8 +83,7 @@ function gameStart(selectedId, difficultyOp) {
     document.getElementById("hard").disabled = true;
 }
 
-let userCurrentScore = 0;
-let pcCurrentScore = 0;
+
 
 // outputs page messages
 function loadPage(userCurrentScore, pcCurrentScore) {
@@ -96,21 +95,25 @@ function loadPage(userCurrentScore, pcCurrentScore) {
     if (userCurrentScore > pcCurrentScore) {
         document.getElementById("game-over-message").innerHTML = "Well done You Won the Game!!";
         document.getElementById("win-link").innerHTML = "Click here For Your Prize, Congratulations";
-    } else if (pcCurrentScore > userCurrentScore) {
-        document.getElementById("game-over-message").innerHTML = "Unlucky, Computer Won the Game";
-    } else {
+    } else if (userCurrentScore === pcCurrentScore) {
+        console.log(userCurrentScore + "" + pcCurrentScore);
         document.getElementById("game-over-message").innerHTML = "It's a draw, you both win";
+    } else {
+        document.getElementById("game-over-message").innerHTML = "Unlucky, Computer Won the Game";
 
     }
 
 }
-
+let pcOutcome = false;
+let userOutcome = false;
+let userCurrentScore = 0;
+let pcCurrentScore = 0;
 
 // Game modes
 function easyMode() {
     let easyChance = Math.floor(Math.random() * 12) + 1;
-    let pcOutcome = false;
-    let userOutcome = false;
+    // let pcOutcome = false;
+    // let userOutcome = false;
     if (easyChance === 10) {
         document.getElementById("pc-result").innerHTML = "";
         document.getElementById("round-outcome").innerHTML = "You drew this round host chose: " + selectedId;
@@ -142,7 +145,7 @@ function easyMode() {
 
 
 }
-let pcOutcome = false;
+
 
 
 function mediumMode(pcOutcome, userOutcome) {
@@ -169,13 +172,11 @@ function mediumMode(pcOutcome, userOutcome) {
 
 
     if (roundCount === 5) {
-        loadPage();
+        loadPage(userCurrentScore, pcCurrentScore);
     }
 }
 
 function hardMode() {
-    let pcOutcome = false;
-    let userOutcome = false;
     let hardChance = Math.floor(Math.random() * 10) + 1;
     if (hardChance == 10) {
         document.getElementById("round-outcome").innerHTML = "You drew this round host chose: " + selectedId;
@@ -197,7 +198,7 @@ function hardMode() {
 
 
     if (roundCount === 5) {
-        loadPage();
+        loadPage(userCurrentScore, pcCurrentScore);
     }
 }
 // Outputs the PC response based on logic outcome
