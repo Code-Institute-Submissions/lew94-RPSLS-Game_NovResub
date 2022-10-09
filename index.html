@@ -16,9 +16,14 @@
 
 <body>
     <h1>Rock, Paper, Scissors, Lizard & Spock</h1>
-
-    <div class="container">
-        <div class="row justify-content-center">
+    <div class="row justify-content-center">
+        <div class="col-4 hidden-round">
+            <p id="game-over-message"></p>
+            <a href="https://www.youtube.com/watch?v=_PUEoDYpUyQ" target="_blank" id="win-link"></a>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row justify-content-center top-row">
             <div class="col-4 hidden-round">
                 <p id="round-outcome"></p>
             </div>
@@ -65,19 +70,13 @@
                 <div class="col-4"><button id="shoot-game" type="button"><span>Shoot</span></button>
                 </div>
             </div>
-            <div class="row justify-content-end">
+            <div class="row justify-content-center">
                 <div class="col-4">
                     <button id="restart-game" type="button" onClick="window.location.reload();"><i
                             class="fa-solid fa-rotate-right"></i> Refresh Game</button>
                 </div>
             </div>
         </form>
-
-        <div class="row">
-            <div class="col-4" id="computer-response">
-                <p></p>
-            </div>
-        </div>
         <div class="row" id="current-score">
             <p class="col-6" id="your-current-score">Your Score: <span id="your-count">0</span></p>
             <p class="col-6" id="computer-current-score">Computer Score: <span id="pc-count">0</span></p>

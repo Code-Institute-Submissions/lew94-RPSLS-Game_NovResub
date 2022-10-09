@@ -10,15 +10,31 @@ body {
 }
 
 h1,
-#round-outcome,
+
 #difficulty,
 #game-set,
 [type=submit] {
-    margin-bottom: 29px;
+    margin-bottom: 19px;
+}
+
+#game-over-message {
+    width: 550px;
+}
+
+#win-link {
+    width: 550px;
+}
+
+/* #difficulty {
+    margin-top: 29px;
+} */
+
+#pc-result {
+    color: white;
 }
 
 .hidden-round {
-    height: 100px;
+    height: 80px;
 }
 
 /* Page button style */
@@ -132,7 +148,13 @@ li {
 
 #your-current-score {
     color: #0C90F0;
+    text-align: end;
 }
+
+#computer-current-score {
+    text-align: start;
+}
+
 
 /* Run the game button */
 #shoot-game {

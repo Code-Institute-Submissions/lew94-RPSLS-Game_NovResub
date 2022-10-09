@@ -46,27 +46,30 @@ function checkTrue() {
 
 
     document.getElementById("shoot-game").addEventListener("click", valGame);
-
-    function valGame() {
+    // Check if game mode and items selected
+    function valGame(selectedId) {
         if (gameMode === true && itemPicked === true) {
             console.log("Game Start user has set " + selectedId + " " + difficultyOp);
             gameStart(selectedId, difficultyOp);
-
-
+            let lockMode = document.getElementById("round-count");
+            let lockButtons = document.getElementById("difficulty");
+            if (lockMode > 0) {
+                lockButtons.disabled = true;
+            }
 
         } else {
             if (gameMode === true && itemPicked === false) {
-                console.log("game item is not selected")
+                document.getElementById("pc-result").innerHTML = "game item is not selected";
             } else if (gameMode === false && itemPicked === true) {
-                console.log("User not selected game difficulty")
+                document.getElementById("pc-result").innerHTML = "game Mode is not selected";
             } else {
-                console.log("Select game diffuclty and your game item")
+                document.getElementById("pc-result").innerHTML = "Select game mode and game item";
             }
         }
     }
 
 }
-
+// Checks the Game mode
 function gameStart(selectedId, difficultyOp) {
 
     if (difficultyOp === "easy") {
@@ -78,103 +81,90 @@ function gameStart(selectedId, difficultyOp) {
     } else {
         console.log("something went wrong")
     }
-
+    document.getElementById("easy").disabled = true;
+    document.getElementById("medium").disabled = true;
+    document.getElementById("hard").disabled = true;
 }
 
 let userCurrentScore = 0;
 let pcCurrentScore = 0;
 
-
-function loadPage() {
+// outputs page messages
+function loadPage(userCurrentScore, pcCurrentScore) {
+    document.getElementById("pc-result").style.visibility = "hidden"
     document.getElementById("shoot-game").disabled = true;
     console.log("Game Over");
     console.log(userCurrentScore + " " + pcCurrentScore);
     document.getElementById("round-outcome").innerHTML = "GAME OVER";
-    // setTimeout(() => {
-    //     window.location.assign("outcome.html");
-    // }, 3000);
+    if (userCurrentScore > pcCurrentScore) {
+        document.getElementById("game-over-message").innerHTML = "Well done You Won the Game!!";
+        document.getElementById("win-link").innerHTML = "Your Prize, Congratulations";
+    } else if (pcCurrentScore > userCurrentScore) {
+        document.getElementById("game-over-message").innerHTML = "Unlucky, Computer Won the Game";
+    } else {
+        document.getElementById("game-over-message").innerHTML = "It's a draw, you both win";
+
+    }
+
 }
 
 
-
+// Game modes
 function easyMode() {
     let easyChance = Math.floor(Math.random() * 12) + 1;
     let pcOutcome = false;
     let userOutcome = false;
     if (easyChance === 10) {
-        document.getElementById("round-outcome").innerHTML = "You draw host chose: " + selectedId;
-        let pcChoice = document.getElementsByClassName("selected");
+        document.getElementById("pc-result").innerHTML = "";
+        document.getElementById("round-outcome").innerHTML = "You drew this round host chose: " + selectedId;
+        document.getElementById("pc-result").innerText("");
+        pcChoice = document.getElementsByClassName("selected");
+
 
     } else if (easyChance > 10) {
-        document.getElementById("round-outcome").innerHTML = "You Lose host chose: ";
+        document.getElementById("round-outcome").innerHTML = "You Lost this round host chose: ";
         pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
         document.getElementById("pc-count").innerText = ++pcCurrentScore;
-        let pcOutcome = true;
+        pcOutcome = true;
 
 
     } else {
-        document.getElementById("round-outcome").innerHTML = "You Win!! host chose: ";
+        document.getElementById("round-outcome").innerHTML = "You Win this round!! host chose: ";
         userCurrentScore = parseInt(document.getElementById("your-count").innerText);
         document.getElementById("your-count").innerText = ++userCurrentScore;
-        let userOutcome = true;
+        userOutcome = true;
     }
     let roundCount = parseInt(document.getElementById("round-count").innerText);
     document.getElementById("round-count").innerText = ++roundCount;
     pcResponse(pcOutcome, userOutcome, selectedId);
 
-    // if (roundCount === 5) {
-    //     loadPage();
-    // }
+
+    if (roundCount === 5) {
+        loadPage(userCurrentScore, pcCurrentScore);
+    }
+
 
 }
 let pcOutcome = false;
-let userOutcome = false;
+
 
 function mediumMode(pcOutcome, userOutcome) {
 
     let mediumChance = Math.floor(Math.random() * 10) + 1;
     if (mediumChance === 10) {
-        document.getElementById("round-outcome").innerHTML = "You draw host chose: " + selectedId;
+        document.getElementById("round-outcome").innerHTML = "You drew this round host chose: " + selectedId;
 
     } else if (mediumChance % 2 === 0) {
-        document.getElementById("round-outcome").innerHTML = "You Lose host chose: ";
+        document.getElementById("round-outcome").innerHTML = "You Lost this round host chose: ";
         pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
         document.getElementById("pc-count").innerText = ++pcCurrentScore;
-        let pcOutcome = true;
+        pcOutcome = true;
 
     } else {
-        document.getElementById("round-outcome").innerHTML = "You Win!! host chose: ";
+        document.getElementById("round-outcome").innerHTML = "You Win this round!! host chose: ";
         userCurrentScore = parseInt(document.getElementById("your-count").innerText);
         document.getElementById("your-count").innerText = ++userCurrentScore;
-        let userOutcome = true;
-    }
-    let roundCount = parseInt(document.getElementById("round-count").innerText);
-    document.getElementById("round-count").innerText = ++roundCount;
-    pcResponse(pcOutcome, userOutcome, selectedId);
-
-
-    // if (roundCount === 5) {
-    //     loadPage();
-    // }
-}
-
-function hardMode() {
-    let pcOutcome = false;
-    let userOutcome = false;
-    let hardChance = Math.floor(Math.random() * 10) + 1;
-    if (hardChance == 10) {
-        document.getElementById("round-outcome").innerHTML = "You draw host chose: " + selectedId;
-    } else if (hardChance >= 7) {
-        document.getElementById("round-outcome").innerHTML = "You Win!! host chose: ";
-        userCurrentScore = parseInt(document.getElementById("your-count").innerText);
-        document.getElementById("your-count").innerText = ++userCurrentScore;
-        let userOutcome = true;
-
-    } else {
-        document.getElementById("round-outcome").innerHTML = "You Lose host chose: ";
-        pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
-        document.getElementById("pc-count").innerText = ++pcCurrentScore;
-        let pcOutcome = true;
+        userOutcome = true;
     }
     let roundCount = parseInt(document.getElementById("round-count").innerText);
     document.getElementById("round-count").innerText = ++roundCount;
@@ -186,6 +176,34 @@ function hardMode() {
     }
 }
 
+function hardMode() {
+    let pcOutcome = false;
+    let userOutcome = false;
+    let hardChance = Math.floor(Math.random() * 10) + 1;
+    if (hardChance == 10) {
+        document.getElementById("round-outcome").innerHTML = "You drew this round host chose: " + selectedId;
+    } else if (hardChance >= 7) {
+        document.getElementById("round-outcome").innerHTML = "You Win this round!! host chose: ";
+        userCurrentScore = parseInt(document.getElementById("your-count").innerText);
+        document.getElementById("your-count").innerText = ++userCurrentScore;
+        userOutcome = true;
+
+    } else {
+        document.getElementById("round-outcome").innerHTML = "You Lost this round host chose: ";
+        pcCurrentScore = parseInt(document.getElementById("pc-count").innerText);
+        document.getElementById("pc-count").innerText = ++pcCurrentScore;
+        pcOutcome = true;
+    }
+    let roundCount = parseInt(document.getElementById("round-count").innerText);
+    document.getElementById("round-count").innerText = ++roundCount;
+    pcResponse(pcOutcome, userOutcome, selectedId);
+
+
+    if (roundCount === 5) {
+        loadPage();
+    }
+}
+// Outputs the PC response based on logic outcome
 function pcResponse(pcOutcome, userOutcome, selectedId) {
     // If the computer won
     console.log(pcOutcome);
@@ -245,38 +263,4 @@ function pcResponse(pcOutcome, userOutcome, selectedId) {
     } else {
         console.log("Error happened")
     }
-
-    function againstRock() {
-        pcLose = ["scissors", "lizard"];
-        pcWin = ["scissors", "lizard"];
-
-        // if
-        // let random = Math.floor(Math.random() * pcLose.length);
-        // console.log(random, pcLose[random]);
-    }
-
-    function againstPaper() {
-        pcLose = ["rock", "spock"];
-        pcWin = ["rock", "spock"];
-        draw = "paper"
-    }
-
-    function againstScissors() {
-        console.log("sisscors workings")
-        pcLose = ["paper", "lizard"];
-        pcWin = ["paper", "lizard"];
-    }
-
-    function againstLizard() {
-        console.log("lizard workings")
-
-        pcLose = ["paper", "spock"];
-        pcWin = ["paper", "spock"];
-    }
-
-    function againstSpock() {
-        pcLose = ["scissors", "rock"];
-        pcWin = ["scissors", "rock"];
-    }
-
 }
